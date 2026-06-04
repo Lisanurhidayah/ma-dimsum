@@ -15,16 +15,16 @@ export function Footer() {
         <div className="text-sm">
           <h4 className="font-semibold mb-3">Kontak</h4>
           <ul className="space-y-2 text-muted-foreground">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> +62 812-3456-7890</li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> +62 889-8834-8141</li>
             <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> Semarang, Jawa Tengah</li>
             <li className="flex items-center gap-2"><Instagram className="h-4 w-4 text-primary" /> @ma.dimsum.smg</li>
           </ul>
         </div>
         <div className="text-sm">
           <h4 className="font-semibold mb-3">Jam Operasional</h4>
-          <ul className="space-y-1 text-muted-foreground">
-            <li>Senin – Jumat: 09.00 – 21.00</li>
-            <li>Sabtu – Minggu: 08.00 – 22.00</li>
+          <ul className="space-y-1 text-muted-foreground whitespace-pre-line">
+            <li>Jumat       08.00 - 18.00</li>
+            <li>{"Sabtu       08.00 - 18.00\nMinggu    08.00 - 18.00"}</li>
           </ul>
         </div>
       </div>
