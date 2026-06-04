@@ -1,0 +1,76 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.875rem;
+  /* Warm cream background, deep red brand, gold accent */
+  --background: oklch(0.985 0.012 80);
+  --foreground: oklch(0.20 0.03 30);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.20 0.03 30);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.20 0.03 30);
+  --primary: oklch(0.48 0.18 27);          /* deep chinese red */
+  --primary-foreground: oklch(0.98 0.01 80);
+  --secondary: oklch(0.95 0.025 70);
+  --secondary-foreground: oklch(0.25 0.05 30);
+  --muted: oklch(0.94 0.015 70);
+  --muted-foreground: oklch(0.45 0.03 40);
+  --accent: oklch(0.78 0.14 75);           /* warm gold */
+  --accent-foreground: oklch(0.22 0.04 30);
+  --gold: oklch(0.74 0.14 75);
+  --gold-foreground: oklch(0.20 0.04 30);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.98 0.01 80);
+  --border: oklch(0.90 0.02 70);
+  --input: oklch(0.92 0.018 70);
+  --ring: oklch(0.48 0.18 27);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@utility text-balance { text-wrap: balance; }
