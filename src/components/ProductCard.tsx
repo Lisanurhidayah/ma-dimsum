@@ -38,7 +38,7 @@ export function ProductCard({ item }: { item: MenuItem }) {
   };
 
   return (
-    <article className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+    <article className="group flex flex-col overflow-hidden rounded-2xl bg-card border border-gold/30 shadow-[0_4px_20px_-5px_rgba(92,32,24,0.15)] hover:shadow-[0_10px_30px_-8px_rgba(92,32,24,0.25)] hover:-translate-y-1 transition-all duration-300">
       <div className="relative aspect-square overflow-hidden">
         <img
           src={src}
@@ -46,9 +46,9 @@ export function ProductCard({ item }: { item: MenuItem }) {
           loading="lazy"
           width={800}
           height={800}
-          className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
-        <div className="absolute top-3 left-3 bg-primary text-primary-foreground text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+        <div className="absolute top-3 left-3 bg-gold text-gold-foreground text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-sm shadow-sm">
           Best Seller
         </div>
         <div className="absolute top-3 right-3 flex gap-1.5 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
@@ -79,19 +79,19 @@ export function ProductCard({ item }: { item: MenuItem }) {
           />
         </div>
       </div>
-      <div className="p-5">
-        <h3 className="font-display text-xl font-bold text-foreground">{item.name}</h3>
-        <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{item.description}</p>
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="font-display text-[22px] leading-tight text-primary">{item.name}</h3>
+        <p className="mt-2 text-sm text-muted-foreground line-clamp-2 leading-relaxed">{item.description}</p>
 
-        <div className="mt-4 flex flex-wrap gap-1.5">
+        <div className="mt-5 flex flex-wrap gap-2">
           {item.variants.map((vr, i) => (
             <button
               key={vr.label}
               onClick={() => setVariantIdx(i)}
-              className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${
+              className={`text-[11px] font-bold px-3 py-1.5 rounded-full border transition-all ${
                 i === variantIdx
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-secondary text-secondary-foreground border-border hover:border-primary"
+                  ? "bg-muted-foreground text-primary-foreground border-muted-foreground shadow-sm"
+                  : "bg-transparent text-muted-foreground border-muted-foreground/60 hover:bg-muted-foreground hover:text-primary-foreground"
               }`}
             >
               {vr.label}
@@ -99,16 +99,17 @@ export function ProductCard({ item }: { item: MenuItem }) {
           ))}
         </div>
 
-        <div className="mt-5 flex items-center justify-between">
+        <div className="mt-6 pt-5 flex items-end justify-between border-t border-gold/25">
           <div>
-            <div className="text-xs text-muted-foreground">Harga</div>
-            <div className="font-display text-2xl font-bold text-primary">{formatIDR(v.price)}</div>
+            <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">Harga</div>
+            <div className="font-sans text-xl font-bold text-primary mt-0.5">{formatIDR(v.price)}</div>
           </div>
           <button
             onClick={handleAdd}
-            className="inline-flex items-center gap-1.5 bg-foreground text-background hover:bg-primary transition-colors px-4 py-2.5 rounded-full text-sm font-semibold"
+            aria-label={added ? "Ditambahkan" : "Tambah ke keranjang"}
+            className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-accent text-accent-foreground hover:bg-muted-foreground shadow-[0_4px_12px_rgba(212,132,42,0.4)] hover:-translate-y-1 transition-all duration-300"
           >
-            {added ? <><Check className="h-4 w-4" /> Ditambahkan</> : <><Plus className="h-4 w-4" /> Tambah</>}
+            {added ? <Check className="h-5 w-5" strokeWidth={2.5} /> : <Plus className="h-5 w-5" strokeWidth={2.5} />}
           </button>
         </div>
       </div>
