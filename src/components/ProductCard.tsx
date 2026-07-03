@@ -99,7 +99,7 @@ export function ProductCard({ item }: { item: MenuItem }) {
           ))}
         </div>
 
-        <div className="mt-auto pt-5 flex items-end justify-between border-t border-gold/25 mt-6">
+        <div className="mt-6 pt-5 flex items-end justify-between border-t border-gold/25">
           <div>
             <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">Harga</div>
             <div className="font-sans text-xl font-bold text-primary mt-0.5">{formatIDR(v.price)}</div>
