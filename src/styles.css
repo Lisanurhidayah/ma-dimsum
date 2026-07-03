@@ -61,8 +61,6 @@
   --ring: oklch(0.48 0.18 27);
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
-
 @layer base {
   * { border-color: var(--color-border); }
   body {
